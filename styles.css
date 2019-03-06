@@ -71,18 +71,42 @@ kbd {
 	text-transform: uppercase;
 }
 
-@media screen and (orientation: portrait){
+@media screen and (max-width: 800px){
 	html {
-		background: url("images/drummer-bg-sm.jpg") no-repeat fixed center;
-		font-size: .9vh;
+		font-size: 1.3vw;
 	}
 
 	.drumkit {
-		flex-direction: column;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		justify-items: center;
 	}
 
 	.key {
-		height: 7vh;
-		width: 7vh;
+		height: 9vw;
+		width: 9vw;
+	}
+}
+
+@media screen and (orientation: portrait){
+	html {
+		background: url("images/drummer-bg-sm.jpg") no-repeat fixed center;
+		font-size: 1.3vh;
+	}
+
+	.drumkit {
+		height: 50%;
+		margin: auto;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	.key {
+		height: 9vh;
+		width: 9vh;
 	}
 }
