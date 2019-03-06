@@ -7,16 +7,20 @@
 /* ====================================== */
 
 function playSound(event){
-	// Handle 'click' vs 'keydown' events
-	const clickedElement = event.type === "click"? this : false;
-	const currentSound = clickedElement? document.querySelector(`audio[data-key="${clickedElement.getAttribute("data-key")}"]`)
-										:document.querySelector(`audio[data-key="${event.keyCode}"]`);
-	const currentkey = clickedElement? document.querySelector(`.key[data-key="${clickedElement.getAttribute("data-key")}"]`)
-										:document.querySelector(`.key[data-key="${event.keyCode}"]`);
+	const currentSound = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+	const currentkey = document.querySelector(`.key[data-key="${event.keyCode}"]`);
 
 	if(!currentSound) return; // Stop the function if unrelated keys are pressed
 	currentSound.currentTime = 0; //Reset sound clip to fix quick successive key presses
+	currentSound.play();
+	currentkey.classList.add("playing");
+}
 
+function clickPlaySound(){
+	const currentSound = document.querySelector(`audio[data-key="${this.getAttribute("data-key")}"]`);
+	const currentkey = document.querySelector(`.key[data-key="${this.getAttribute("data-key")}"]`)
+	
+	currentSound.currentTime = 0;
 	currentSound.play();
 	currentkey.classList.add("playing");
 }
@@ -30,5 +34,5 @@ const drumkit = document.querySelectorAll(".key");
 
 //Event handling
 window.addEventListener("keydown", playSound);
-drumkit.forEach(key => key.addEventListener("click", playSound));
+drumkit.forEach(key => key.addEventListener("click", clickPlaySound));
 drumkit.forEach(key => key.addEventListener("transitionend", removeAnimation));
