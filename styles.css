@@ -12,22 +12,14 @@
 }
 
 html {
-	background-color: red;
+	background: url("images/drummer-bg.jpg") no-repeat fixed center;
+	background-size: cover;
 	font-family: sans-serif;
-	font-size: 10px;
+	font-size: .8vw;
 }
 
 body {
-	background: url("images/drummer-bg.jpg") bottom center no-repeat;
-	background-size: cover;
-	height: 100vh;
-}
-
-@media screen and (max-width: 700px){
-	body {
-		background: url("images/drummer-bg-sm.jpg") bottom center no-repeat;
-		background-size: cover;
-	}
+	padding: 0 2rem;
 }
 
 .drumkit {
@@ -35,7 +27,7 @@ body {
 	flex: 1;
 	align-items: center;
 	justify-content: center;
-	height: 100%;
+	height: 100vh;
 	width: 100%;
 }
 
@@ -44,14 +36,17 @@ body {
 	border: .4rem solid black;
 	border-radius: 50%;
 	color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	font-size: 1.5rem;
 	margin: 1rem;
 	padding: 1rem;
-	text-align: center;
 	text-shadow: 0 0 .4rem #000;
 	transition: all .07s ease;
-	width: 6vw;
-	height: 6vw;
+	width: 7vw;
+	height: 7vw;
 }
 
 .key:hover {
@@ -74,4 +69,20 @@ kbd {
 	font-size: 1.2rem;
 	letter-spacing: .1rem;
 	text-transform: uppercase;
+}
+
+@media screen and (orientation: portrait){
+	html {
+		background: url("images/drummer-bg-sm.jpg") no-repeat fixed center;
+		font-size: .9vh;
+	}
+
+	.drumkit {
+		flex-direction: column;
+	}
+
+	.key {
+		height: 7vh;
+		width: 7vh;
+	}
 }
