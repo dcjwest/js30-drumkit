@@ -22,8 +22,10 @@
 html {
 	background: url("images/drummer-bg.jpg") no-repeat fixed center;
 	background-size: cover;
-	font-family: 'Raleway', monospace;
+	font-family: 'Raleway', sans-serif;
 	font-size: .8vw;
+	min-height: 100vh;
+	width: 100%;
 }
 
 body {
